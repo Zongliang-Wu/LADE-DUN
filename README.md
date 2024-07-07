@@ -1,2 +1,2 @@
-# LDM_DUN_CASSI
-[ECCV2024] Latent Diffusion Prior Enhanced Deep Unfolding for Snapshot Spectral Compressive Imaging.
+# LADE-DUN
+LAtent Diffusion prior Enhanced Deep Unfolding Network (LADE-DUN) for Snapshot Spectral Compressive Imaging.
