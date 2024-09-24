@@ -1,0 +1,16 @@
+# 忽略特定文件
+option_copy.py
+note.txt
+
+# 忽略某个文件夹
+exp/
+.lh/
+.vscode/
+vis/.lh/
+vis/_pycache/
+vis/kaist_10_truth.mat
+vis/Ours/results_40_16.mat
+vis/hper2rgb_sim/sim_hyper2rgb_results_8method.mat
+__pycache__/
+*/_pycache/
+*/*.mat
