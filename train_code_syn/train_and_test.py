@@ -63,7 +63,7 @@ if not os.path.exists(result_path):
 if not os.path.exists(model_path):
     os.makedirs(model_path)
     
-if opt.train_stage==1:
+if opt.train_phase==1:
     opt.max_epoch = opt.max_epoch*2
 else:
     if opt.batch_size>4:
@@ -79,7 +79,7 @@ start_epoch = 0
 model = model_generator(method=opt.method,opt=opt)
 
 
-if opt.train_stage==2:
+if opt.train_phase==2:
     freeze_dict = dict()
     model_dict = model.state_dict()
     for param in model.parameters():
@@ -123,7 +123,7 @@ if opt.resume_ckpt_path:
     model_dict = model.state_dict()
     
 
-    if opt.train_stage==2:
+    if opt.train_phase==2:
         ckpt_ema_shadow_params = save_state['ema']['shadow_params']
         ckpt_ema_shadow_params_size = sum([np.prod(list(p.size())) for p in ckpt_ema_shadow_params])
         if ckpt_ema_shadow_params_size==para_ema_sh:
@@ -190,7 +190,7 @@ def train(epoch, logger):
     train_tqdm = tqdm(range(batch_num))
     
     if epoch == 1:
-        if opt.train_stage==1:
+        if opt.train_phase==1:
             flops = get_model_complexity_info(model, [flops_input_size,(28,256,310),flops_input_size2],output_precision=3,
                                           print_per_layer_stat=print_per_layer_stat)
         else:
@@ -215,7 +215,7 @@ def train(epoch, logger):
         # loss = loss + stageLoss*0.5
         
        
-        if opt.train_stage==2:
+        if opt.train_phase==2:
             gamma = 1.0
             prior_z = log_dict['prior_z']
             prior = log_dict['prior']
@@ -264,7 +264,7 @@ def test(epoch, logger,mask3d_batch_test=None, diff_test=False):
     for k in range(test_gt.shape[0]) if diff_test==False else range(test_gt.shape[0]):
         with torch.no_grad():
             with ema.average_parameters():
-                if opt.train_stage==1:
+                if opt.train_phase==1:
                         model_out, log_dict = model(input_meas[k].unsqueeze(0), mask3d_batch_test,test_gt[k].unsqueeze(0))
                 else:
                         model_out, log_dict = model(input_meas[k].unsqueeze(0), mask3d_batch_test)       
@@ -306,7 +306,7 @@ def main():
             (pred, truth, psnr_all, ssim_all, psnr_mean, ssim_mean, image_log) = test(epoch, logger,Phi_batch_test)
             if psnr_mean > psnr_max:
                 psnr_max = psnr_mean
-                if psnr_mean > 28 or (opt.train_stage==1 and opt.maskLoss and psnr_mean > 8):
+                if psnr_mean > 28 or (opt.train_phase==1 and opt.maskLoss and psnr_mean > 8):
                     name = result_path + '/' + 'Test_{}_{:.2f}_{:.3f}'.format(epoch, psnr_max, ssim_mean) + '.mat'
                     # scio.savemat(name, {'truth': truth, 'pred': pred, 'psnr_list': psnr_all, 'ssim_list': ssim_all})
                     checkpoint(model, ema, optimizer, scheduler, epoch, model_path, logger)

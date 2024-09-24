@@ -24,7 +24,7 @@ def merge_network_opt(parser):
     
     #####ldm#####
     # parser.add_argument('--apply_ldm', type=bool, default=True, help="whether use ldm in lade_dun")
-    parser.add_argument('--train_stage', type=int, default=0, help="training phase for lade_dun")
+    parser.add_argument('--train_phase', type=int, default=0, help="training phase for lade_dun")
     parser.add_argument('--timesteps', type=int, default=16, help="timesteps in ldm")
     parser.add_argument('--linear_start', type=float, default=0.1, help="diffusion sampling start")
     parser.add_argument('--linear_end', type=float, default=0.99, help="diffusion sampling end")

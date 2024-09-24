@@ -231,14 +231,14 @@ class TridentTransformer(nn.Module):
         )
         self.spec_to_prior_inter = DWPWConvL(2*dim//self.split_ch, 2*dim//self.split_ch,2,2,0)
         self.add_ss = nn.Sequential(nn.Conv2d(dim,dim,1,1,0),
-                                nn.Identity() if self.opt.train_stage==1 else nn.GELU()
+                                nn.Identity() if self.opt.train_phase==1 else nn.GELU()
                                  )  
         if self.split_ch>1:
             in_dim = 3*dim//self.split_ch
         else:
             in_dim = 2*dim
         self.add_ssp = nn.Sequential(nn.Conv2d(in_dim,dim,1,1,0),
-                                 nn.Identity() if self.opt.train_stage==1 else nn.GELU()
+                                 nn.Identity() if self.opt.train_phase==1 else nn.GELU()
                                  )
         self.ffn = Residual(
             FFN_FN(
@@ -818,14 +818,14 @@ class LADE_DUN(nn.Module):
     def __init__(self, opt):
         super().__init__()
         self.opt = opt
-        self.train_stage = opt.train_stage
+        self.train_phase = opt.train_phase
         use_prior_flag = True
         if opt.test_mode==True:
             self.gt_le = None
         else:
             self.gt_le = latent_encoder_gelu_mobile()
         
-        if opt.train_stage ==2:
+        if opt.train_phase ==2:
             self.net_le_dm = latent_encoder_gelu_mobile(in_chans=28)
             self.net_d = simple_denoise(64,4,timesteps=opt.timesteps) 
             self.ddpm_func = DDPM_Func()
@@ -877,14 +877,14 @@ class LADE_DUN(nn.Module):
         else:
             prior_z = None
 
-        if self.train_stage==1:
+        if self.train_phase==1:
             prior = prior_z
-        elif self.train_stage==2:               
+        elif self.train_phase==2:               
             prior, _=self.diffusion(inp_img,prior_z)
             log_dict['prior'] = prior
             log_dict['prior_z'] = prior_z
             
-        if self.train_stage>0:
+        if self.train_phase>0:
             prior_att = []
             prior_1 = prior # [2, 16, 256]
             prior_2 = self.down_1(prior_1)# [2, 4, 256]
@@ -892,7 +892,7 @@ class LADE_DUN(nn.Module):
             prior_att.append(prior_1)
             prior_att.append(prior_2) 
             prior_att.append(prior_3) #112 64 64
-        elif self.train_stage==0:
+        elif self.train_phase==0:
             prior_att = [None,None,None]
  
         v_pre = self.head_GD(y, x0, Phi)

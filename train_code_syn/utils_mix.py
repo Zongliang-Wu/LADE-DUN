@@ -16,14 +16,14 @@ def freeze_model(model, to_freeze_dict, keep_step=None):
             pass
 
     return model
-def generate_shift_masks(mask_path, batch_size, device,train_stage=0):
+def generate_shift_masks(mask_path, batch_size, device,train_phase=0):
     mask = sio.loadmat('/home/wuzongliang/py/dataset/Data_CASSI/diffMasks/sim_Meng' + '/mask_3d_shift.mat')
     mask_3d_shift = mask['mask_3d_shift']
     mask_3d_shift = np.transpose(mask_3d_shift, [2, 0, 1])
     mask_3d_shift = torch.from_numpy(mask_3d_shift)
     [nC, H, W] = mask_3d_shift.shape
     
-    if train_stage==1: # mask with black edges
+    if train_phase==1: # mask with black edges
         step = 2
         mask2d = mask_3d_shift[0,:,0:W-step*(nC-1)]
         mask_3d_shift = torch.zeros(nC, H, W).float()
@@ -280,9 +280,9 @@ def generate_masks(mask_path, batch_size):
     mask3d_batch = mask3d.expand([batch_size, nC, H, W]).cuda().float()
     return mask3d_batch
 
-def init_mask(mask_path, mask_type, batch_size, device="cuda",train_stage=0):
+def init_mask(mask_path, mask_type, batch_size, device="cuda",train_phase=0):
     if mask_type == 'Phi':
-        Phi_batch,Phi_s_batch = generate_shift_masks(mask_path, batch_size, device,train_stage)
+        Phi_batch,Phi_s_batch = generate_shift_masks(mask_path, batch_size, device,train_phase)
     elif mask_type == 'Mask':
         Phi_batch = generate_masks(mask_path, batch_size)
         # Phi_batch = mask3d_batch

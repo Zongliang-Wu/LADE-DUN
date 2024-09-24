@@ -1185,7 +1185,7 @@ class DUF_MixS2_diff_HIM4_mlp_abla_full_aggr_smlp_9stg(nn.Module):
     def __init__(self, opt):
         super().__init__()
         self.opt = opt
-        self.train_stage = opt.train_stage
+        self.train_phase = opt.train_phase
 
         if opt.test_mode==True:
             self.gt_le = None
@@ -1196,7 +1196,7 @@ class DUF_MixS2_diff_HIM4_mlp_abla_full_aggr_smlp_9stg(nn.Module):
             self.apply_ldm = opt.apply_ldm
         else:
             self.apply_ldm = False
-        if opt.train_stage==2:
+        if opt.train_phase==2:
             self.net_le_dm = latent_encoder_gelu_mobile(in_chans=28)
             
             if opt.denoiser=='simple_denoising':
@@ -1268,9 +1268,9 @@ class DUF_MixS2_diff_HIM4_mlp_abla_full_aggr_smlp_9stg(nn.Module):
             
                     # freeze c1 (cpen_s1)
 
-        if self.train_stage==1:
+        if self.train_phase==1:
             prior = prior_z
-        elif self.train_stage==2:
+        elif self.train_phase==2:
 
             if self.apply_ldm:
                 
@@ -1294,7 +1294,7 @@ class DUF_MixS2_diff_HIM4_mlp_abla_full_aggr_smlp_9stg(nn.Module):
             log_dict['prior'] = prior
             log_dict['prior_z'] = prior_z
             
-        if self.train_stage>0:
+        if self.train_phase>0:
             prior_att = []
 
             prior_1 = prior # [2, 16, 256]
@@ -1304,7 +1304,7 @@ class DUF_MixS2_diff_HIM4_mlp_abla_full_aggr_smlp_9stg(nn.Module):
             prior_att.append(prior_1)
             prior_att.append(prior_2) 
             prior_att.append(prior_3) #112 64 64
-        elif self.train_stage==0:
+        elif self.train_phase==0:
             prior_att = [None,None,None]
         ##############
 
