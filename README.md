@@ -1,13 +1,7 @@
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/mst-multi-stage-spectral-wise-transformer-for/spectral-reconstruction-on-arad-1k)](https://paperswithcode.com/sota/spectral-reconstruction-on-arad-1k?p=mst-multi-stage-spectral-wise-transformer-for)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/degradation-aware-unfolding-half-shuffle/spectral-reconstruction-on-cave)](https://paperswithcode.com/sota/spectral-reconstruction-on-cave?p=degradation-aware-unfolding-half-shuffle)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/degradation-aware-unfolding-half-shuffle/spectral-reconstruction-on-kaist)](https://paperswithcode.com/sota/spectral-reconstruction-on-kaist?p=degradation-aware-unfolding-half-shuffle)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/degradation-aware-unfolding-half-shuffle/spectral-reconstruction-on-real-hsi)](https://paperswithcode.com/sota/spectral-reconstruction-on-real-hsi?p=degradation-aware-unfolding-half-shuffle)
-
 
 # LADE-DUN for CASSI
 
-This repo is the implementation of paper "Latent Diffusion Prior Enhanced Deep Unfolding for Snapshot Spectral Compressive Imaging"
+This repo is the implementation of the paper "Latent Diffusion Prior Enhanced Deep Unfolding for Snapshot Spectral Compressive Imaging"
 
 # Abstract
 
@@ -43,7 +37,7 @@ download cave_1024_28 ([Baidu Disk](https://pan.baidu.com/s/1X_uXxgyO-mslnCTn4io
 
 ## Pretrained weights and Results
 
-Download pretrained weights and results at ([Onedrive](https://westlakeu-my.sharepoint.com/:f:/g/personal/wuzongliang_westlake_edu_cn/EikQ7Wr9ToNCp6YktuRzDwkBZnyvcB3Hb4meuhmH3YhKXg?e=k7W36q)).
+Download pretrained weights and results at (To be done).
 
 ## Environment
 ```
@@ -62,14 +56,14 @@ lpips==0.1.4
 
 See the `readme.md` in the [./train_code_syn](./train_code_syn).
 
-## Real Experiement:
+## Real Experiment:
 
 See the `readme.md` in the [./train_code_real](./train_code_real).
 
 
 ## Acknowledgements
 
-Our code is based on following codes, thanks for their generous open source:
+Our code is based on the following codes, thanks for their generous open source:
 
 - [https://github.com/ShawnDong98/RDLUF_MixS2](https://github.com/ShawnDong98/RDLUF_MixS2)
 - [https://github.com/caiyuanhao1998/MST](https://github.com/caiyuanhao1998/MST)
