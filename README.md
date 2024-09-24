@@ -1,7 +1,7 @@
 
 # LADE-DUN for CASSI
 
-This repo is the implementation of paper "Latent Diffusion Prior Enhanced Deep Unfolding for Snapshot Spectral Compressive Imaging"
+This repo is the implementation of the paper "Latent Diffusion Prior Enhanced Deep Unfolding for Snapshot Spectral Compressive Imaging"
 
 # Abstract
 
@@ -56,14 +56,14 @@ lpips==0.1.4
 
 See the `readme.md` in the [./train_code_syn](./train_code_syn).
 
-## Real Experiement:
+## Real Experiment:
 
 See the `readme.md` in the [./train_code_real](./train_code_real).
 
 
 ## Acknowledgements
 
-Our code is based on following codes, thanks for their generous open source:
+Our code is based on the following codes, thanks for their generous open source:
 
 - [https://github.com/ShawnDong98/RDLUF_MixS2](https://github.com/ShawnDong98/RDLUF_MixS2)
 - [https://github.com/caiyuanhao1998/MST](https://github.com/caiyuanhao1998/MST)
