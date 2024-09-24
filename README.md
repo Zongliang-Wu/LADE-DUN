@@ -37,7 +37,7 @@ download cave_1024_28 ([Baidu Disk](https://pan.baidu.com/s/1X_uXxgyO-mslnCTn4io
 
 ## Pretrained weights and Results
 
-Download pretrained weights and results at ([Onedrive](https://westlakeu-my.sharepoint.com/:f:/g/personal/wuzongliang_westlake_edu_cn/EikQ7Wr9ToNCp6YktuRzDwkBZnyvcB3Hb4meuhmH3YhKXg?e=k7W36q)).
+Download pretrained weights and results at (To be done).
 
 ## Environment
 ```
