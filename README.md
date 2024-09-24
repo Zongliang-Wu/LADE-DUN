@@ -7,15 +7,6 @@ This repo is the implementation of the paper "Latent Diffusion Prior Enhanced De
 
 Snapshot compressive spectral imaging reconstruction aims to reconstruct three-dimensional spatial-spectral images from a single-shot two-dimensional compressed measurement. Existing state-of-the-art methods are mostly based on deep unfolding structures but have intrinsic performance bottlenecks: i) the ill-posed problem of dealing with heavily degraded measurement, and ii) the regression loss-based reconstruction models being prone to recover images with few details. In this paper, we introduce a generative model, namely the latent diffusion model (LDM), to generate degradation-free prior to enhance the regression-based deep unfolding method by a two-stage training procedure. Furthermore, we propose a Trident Transformer (TT), which extracts correlations among prior knowledge, spatial, and spectral features, to integrate knowledge priors in deep unfolding denoiser, and guide the reconstruction for compensating high-quality spectral signal details. To our knowledge, this is the first approach to integrate physics-driven deep unfolding with generative LDM in the context of CASSI reconstruction. Comparisons on synthetic and real-world datasets illustrate the superiority of our proposed method in both reconstruction quality and computational efficiency.
 
-
-<!-- # Comparison with other Deep Unfolding Networks
-
-<div align=center>
-<img src="./figures/LADE_DUN_fig.png" width = "400" height = "300" alt="">
-</div>
-
-Comparison of PSNR-Params with previous HSI DUNs. The PSNR (in dB) is plotted on the vertical axis, while the number of parameters is represented on the horizontal axis. The proposed LADE-DUN outperforms the previous DUNs while requiring much fewer parameters. -->
-
 # Architecture
 
 <div align=center>
@@ -37,7 +28,7 @@ download cave_1024_28 ([Baidu Disk](https://pan.baidu.com/s/1X_uXxgyO-mslnCTn4io
 
 ## Pretrained weights and Results
 
-Download pretrained weights and results at (To be done).
+Download pretrained weights and results at ([Onedrive](https://westlakeu-my.sharepoint.com/:f:/g/personal/wuzongliang_westlake_edu_cn/EikQ7Wr9ToNCp6YktuRzDwkBZnyvcB3Hb4meuhmH3YhKXg?e=k7W36q)).
 
 ## Environment
 ```
