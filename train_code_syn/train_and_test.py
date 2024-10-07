@@ -306,7 +306,7 @@ def main():
             (pred, truth, psnr_all, ssim_all, psnr_mean, ssim_mean, image_log) = test(epoch, logger,Phi_batch_test)
             if psnr_mean > psnr_max:
                 psnr_max = psnr_mean
-                if psnr_mean > 28 or (opt.train_phase==1 and opt.maskLoss and psnr_mean > 8):
+                if psnr_mean > 28:
                     name = result_path + '/' + 'Test_{}_{:.2f}_{:.3f}'.format(epoch, psnr_max, ssim_mean) + '.mat'
                     # scio.savemat(name, {'truth': truth, 'pred': pred, 'psnr_list': psnr_all, 'ssim_list': ssim_all})
                     checkpoint(model, ema, optimizer, scheduler, epoch, model_path, logger)
