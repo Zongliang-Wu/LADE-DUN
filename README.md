@@ -1,7 +1,7 @@
 
-# LADE-DUN for CASSI
+# LADE-DUN for CASSI ECCV 2024 [ECCV 2024 - Best Paper Award Candidate & Oral](https://eccv2024.ecva.net/virtual/2024/awards_detail)
 
-This repo is the implementation of the paper "Latent Diffusion Prior Enhanced Deep Unfolding for Snapshot Spectral Compressive Imaging"
+This repo is the official implementation of the paper titled "Latent Diffusion Prior Enhanced Deep Unfolding for Snapshot Spectral Compressive Imaging".
 
 # Abstract
 
@@ -69,10 +69,12 @@ Our code is based on the following codes, thanks for their generous open source:
 If this code helps you, please consider citing our works:
 
 ```shell
-@article{wu2023latent,
-  title={Latent diffusion prior enhanced deep unfolding for spectral image reconstruction},
+@inproceedings{wu2024latent,
+  title={Latent Diffusion Prior Enhanced Deep Unfolding for Snapshot Spectral Compressive Imaging},
   author={Wu, Zongliang and Lu, Ruiying and Fu, Ying and Yuan, Xin},
-  journal={arXiv preprint arXiv:2311.14280},
-  year={2023}
+  booktitle={European Conference on Computer Vision},
+  pages={164--181},
+  year={2024},
+  organization={Springer}
 }
 ```
