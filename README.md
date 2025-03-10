@@ -1,5 +1,6 @@
 
-# LADE-DUN for CASSI [ECCV 2024 - Best Paper Award Candidate & Oral](https://eccv2024.ecva.net/virtual/2024/awards_detail)
+# LADE-DUN for CASSI 
+[(ECCV 2024 - Best Paper Award Candidate & Oral)](https://eccv2024.ecva.net/virtual/2024/awards_detail)
 
 This repo is the official implementation of the paper titled "Latent Diffusion Prior Enhanced Deep Unfolding for Snapshot Spectral Compressive Imaging".
 
